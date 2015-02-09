@@ -1,0 +1,50 @@
+HW 5.1
+======
+
+> db.posts.aggregate([{$unwind:"$comments"},{$group:{_id:{author:"$comments.author"},total:{$sum:1}}},{$sort:{total:-1}}])
+
+
+
+HW 5.2
+======
+> db.zips.aggregate({$group:{_id:{zip:"$_id",state:"$state"},population:{$sum:"$pop"}}},{$match:{population:{$gt:25000},"_id.state":{$in:["CT","NJ"]}}},{$group:{_id:null,avg:{$avg:"$population"}}})
+{ "_id" : null, "avg" : 36369.36363636364 }
+
+STEP 1
+------
+Different zipcodes can belong to the SAME city.  Calculate all the zipcodes in the SAME city then get the total population for that city.
+
+>db.zips.aggregate({$group:{_id:{zip:"$_id",state:"$state"},population:{$sum:"$pop"}}}
+
+STEP 2
+------
+Filter by state and population
+
+> db.zips.aggregate({$group:{_id:{city:"$city",state:"$state"},population:{$sum:"$pop"}}},{$match:{population:{$gt:25000},"_id.state":{$in:["CT","NJ"]}}},{$sort:{"_id.state":1}})
+
+STEP 3
+------
+Get the average population
+
+> db.zips.aggregate({$group:{_id:{city:"$city",state:"$state"},population:{$sum:"$pop"}}},{$match:{population:{$gt:25000},"_id.state":{$in:["CT","NJ"]}}},{$sort:{"_id.state":1}},{$group:{_id:null,avg:{$avg:"$population"}}})
+{ "_id" : null, "avg" : 38176.63636363636 }
+
+> db.zips.aggregate({$group:{_id:{city:"$city",state:"$state"},population:{$sum:"$pop"}}},{$match:{population:{$gt:25000},"_id.state":{$in:["CA","NY"]}}},{$sort:{"_id.state":1}},{$group:{_id:null,avg:{$avg:"$population"}}})
+{ "_id" : null, "avg" : 44804.782608695656 }
+
+
+
+HW 5.3
+======
+
+> db.grades.aggregate([{$unwind:"$scores"},{$match:{"scores.type":{$in:["exam","homework"]}}},{$group:{_id:{class_id:"$class_id",student_id:"$student_id"},average:{$avg:"$scores.score"}}},{$group:{_id:"$_id.class_id",classAvg:{$avg:"$average"}}},{$sort:{classAvg:1}}]).pretty()
+
+
+HW 5.4
+======
+
+> db.zips.aggregate([{$project:{ city:"$city",first_char:{$substr:["$city",0,1]},population:"$pop"}},{$match:{city: /^\d.*$/}},{$group:{_id:null,total:{$sum:"$population"}}} ])
+{ "_id" : null, "total" : 298015 }
+
+
+

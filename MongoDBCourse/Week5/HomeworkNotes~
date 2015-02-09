@@ -1,0 +1,28 @@
+
+
+HW 5.2
+======
+> db.zips.aggregate({$group:{_id:{zip:"$_id",state:"$state"},population:{$sum:"$pop"}}},{$match:{population:{$gt:25000},"_id.state":{$in:["CT","NJ"]}}},{$group:{_id:null,avg:{$avg:"$population"}}})
+{ "_id" : null, "avg" : 36369.36363636364 }
+
+STEP 1
+------
+Different zipcodes can belong to the SAME city.  Calculate all the zipcodes in the SAME city then get the total population for that city.
+
+>db.zips.aggregate({$group:{_id:{zip:"$_id",state:"$state"},population:{$sum:"$pop"}}}
+
+STEP 2
+------
+Filter by state and population
+
+> db.zips.aggregate({$group:{_id:{city:"$city",state:"$state"},population:{$sum:"$pop"}}},{$match:{population:{$gt:25000},"_id.state":{$in:["CT","NJ"]}}},{$sort:{"_id.state":1}})
+
+STEP 3
+------
+Get the average population
+
+> db.zips.aggregate({$group:{_id:{city:"$city",state:"$state"},population:{$sum:"$pop"}}},{$match:{population:{$gt:25000},"_id.state":{$in:["CT","NJ"]}}},{$sort:{"_id.state":1}},{$group:{_id:null,avg:{$avg:"$population"}}})
+{ "_id" : null, "avg" : 38176.63636363636 }
+
+
+

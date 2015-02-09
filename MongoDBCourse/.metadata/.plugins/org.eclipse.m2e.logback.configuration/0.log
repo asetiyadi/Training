@@ -1,0 +1,11 @@
+2015-01-30 13:57:56,657 [Worker-5] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: org.mongodb:M101J:1.0-SNAPSHOT @ /home/asetiyadi/Training/MongoDBCourse/Week4/hw4-3/pom.xml.
+2015-01-30 13:57:58,149 [Worker-5] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /M101J/src/main/java
+2015-01-30 13:57:58,150 [Worker-5] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /M101J/src/main/resources
+2015-01-30 13:57:58,152 [Worker-5] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /M101J/src/test/java
+2015-01-30 13:57:59,095 [Worker-7] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: org.mongodb:M101J:1.0-SNAPSHOT @ /home/asetiyadi/Training/MongoDBCourse/Week4/hw4-3/pom.xml.
+2015-01-30 13:57:59,784 [Worker-5] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Imported and configured 1 project(s) in 7 sec
+2015-01-30 14:00:01,321 [Worker-1] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: org.mongodb:M101J:1.0-SNAPSHOT @ /home/asetiyadi/Training/MongoDBCourse/Week4/hw4-3/pom.xml.
+2015-01-30 14:00:01,706 [Worker-1] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-30 14:00:01,719 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 8 resources
+2015-01-30 14:00:01,794 [Worker-1] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-30 14:00:01,795 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/asetiyadi/Training/MongoDBCourse/Week4/hw4-3/src/test/resources
